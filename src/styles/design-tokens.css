@@ -1,0 +1,58 @@
+/*
+ * RAINVOUS design tokens
+ * ------------------------------------------------------------------
+ * Single source of truth for colour, type, radius and spacing.
+ * Exposed to Tailwind through the @theme block in globals.css, and
+ * available as plain CSS variables for SVG illustrations and charts.
+ */
+:root {
+  /* Brand palette (supplied) */
+  --rv-blue: #164a91;          /* Primary Blue — structure, navigation, links */
+  --rv-terracotta: #c9572b;    /* Programme accents, warmth */
+  --rv-yellow: #fdbb19;        /* Selective highlight, primary action */
+  --rv-ivory: #f8f7f3;         /* Editorial background */
+  --rv-charcoal: #17191d;      /* Primary text */
+  --rv-grey: #70757d;          /* Supplied soft grey — decorative / large text */
+  --rv-soft-blue: #e8edf4;     /* Subtle backgrounds */
+  --rv-white: #ffffff;
+
+  /* Derived tones (kept within the brand family) */
+  --rv-navy: #0e2f5e;          /* Dark editorial sections */
+  --rv-navy-deep: #0a2348;
+  --rv-blue-bright: #2a63b5;
+  --rv-muted: #5c6168;         /* Body-size secondary text: AA on ivory & white */
+  --rv-line: #e3e1d9;          /* Hairlines on ivory */
+  --rv-line-strong: #cfccc1;
+  --rv-sand: #f1eee6;          /* Secondary warm surface */
+  --rv-terracotta-soft: #f6e4da;
+  --rv-yellow-soft: #fff3d1;
+
+  /* Programme accents — muted, distinguishable, harmonious with brand */
+  --rv-water: #164a91;
+  --rv-agriculture: #4f7a35;
+  --rv-skills: #b54a20;
+  --rv-health: #1f7a80;
+  --rv-women: #9c3f63;
+  --rv-livelihoods: #8f6209;
+
+  /* Feedback */
+  --rv-error: #b3261e;
+  --rv-success: #2f6b3a;
+
+  /* Radius */
+  --rv-radius-sm: 8px;
+  --rv-radius-md: 10px;   /* buttons, inputs */
+  --rv-radius-lg: 14px;   /* cards */
+  --rv-radius-xl: 20px;   /* feature panels */
+
+  /* Section rhythm */
+  --rv-section-y: 56px;
+  --rv-nav-h: 68px;
+}
+
+@media (min-width: 768px) {
+  :root { --rv-section-y: 88px; }
+}
+@media (min-width: 1280px) {
+  :root { --rv-section-y: 112px; }
+}

@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "./design-tokens.css";
+
+@theme {
+  --font-display: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-blue: #164a91;
+  --color-blue-bright: #2a63b5;
+  --color-navy: #0e2f5e;
+  --color-navy-deep: #0a2348;
+  --color-terracotta: #c9572b;
+  --color-terracotta-soft: #f6e4da;
+  --color-terracotta-ink: #a8441c;
+  --color-yellow: #fdbb19;
+  --color-yellow-soft: #fff3d1;
+  --color-ivory: #f8f7f3;
+  --color-sand: #f1eee6;
+  --color-charcoal: #17191d;
+  --color-grey: #70757d;
+  --color-muted: #5c6168;
+  --color-soft-blue: #e8edf4;
+  --color-line: #e3e1d9;
+  --color-line-strong: #cfccc1;
+  --color-error: #b3261e;
+  --color-success: #2f6b3a;
+
+  --color-p-water: #164a91;
+  --color-p-agriculture: #4f7a35;
+  --color-p-skills: #b54a20;
+  --color-p-health: #1f7a80;
+  --color-p-women: #9c3f63;
+  --color-p-livelihoods: #8f6209;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --text-display: clamp(2.5rem, 1.4rem + 4.6vw, 5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: clamp(2.1rem, 1.4rem + 2.8vw, 3.6rem);
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.7vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: clamp(1.2rem, 1.1rem + 0.45vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+
+  --animate-fade-in: fade-in 0.4s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--rv-nav-h) + 16px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  body {
+    background: var(--rv-ivory);
+    color: var(--rv-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: inherit;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  fieldset { min-width: 0; }
+  ::selection { background: var(--rv-yellow); color: var(--rv-charcoal); }
+
+  :focus-visible {
+    outline: 2px solid var(--rv-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .on-dark :focus-visible { outline-color: var(--rv-yellow); }
+}
+
+@layer components {
+  .container-rv {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) { .container-rv { padding-inline: 32px; } }
+  @media (min-width: 1280px) { .container-rv { padding-inline: 40px; } }
+
+  .section-y { padding-block: var(--rv-section-y); }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* Fine-grain paper texture used on dark sections (pure CSS, no image) */
+  .rv-grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Recharts — inherit brand type */
+.recharts-text { font-family: var(--font-sans); }
+.recharts-cartesian-axis-tick-value { font-size: 12px; fill: var(--rv-muted); }
+.recharts-tooltip-wrapper { outline: none; }
+
+@keyframes accordion-down { from { height: 0; } to { height: var(--radix-accordion-content-height); } }
+@keyframes accordion-up { from { height: var(--radix-accordion-content-height); } to { height: 0; } }
+@keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
