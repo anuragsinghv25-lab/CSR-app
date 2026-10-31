@@ -1,11 +1,12 @@
 import type { CSRProject } from './types'
+import { byProgrammeOrder } from './programmes'
 
 /**
  * ILLUSTRATIVE PROTOTYPE DATA — sample CSR project opportunities created
  * to demonstrate the opportunity explorer. These are not live projects.
  * Budgets are in ₹ lakh; durations in months.
  */
-export const csrProjects: CSRProject[] = [
+const projectList: CSRProject[] = [
   {
     id: 'csr-01',
     title: 'Watershed rejuvenation for a drought-prone block',
@@ -34,14 +35,14 @@ export const csrProjects: CSRProject[] = [
   },
   {
     id: 'csr-03',
-    title: 'Demand-led vocational training centre',
+    title: 'Skill training for Self-Help Group members',
     programme: 'skills',
     geography: 'Uttar Pradesh',
     region: 'North',
-    objective: 'Train young people in trades matched to local employer demand.',
+    objective: 'Train SHG members in market-relevant trades, aligned with an applicable Skill India scheme.',
     indicativeBudget: 85,
     duration: 24,
-    expectedOutcomes: ['Certified trainees', 'Placement linkages', 'Post-training mentoring'],
+    expectedOutcomes: ['SHG members trained', 'Certification where the scheme provides it', 'Enterprise or work linkages'],
     status: 'In design',
     isIllustrative: true,
   },
@@ -124,6 +125,9 @@ export const csrProjects: CSRProject[] = [
     isIllustrative: true,
   },
 ]
+
+/** Listed in programme order — Skill Development first. */
+export const csrProjects = byProgrammeOrder(projectList, (p) => p.programme)
 
 export const budgetBands = [
   { id: 'all', label: 'Any budget', min: 0, max: Infinity },

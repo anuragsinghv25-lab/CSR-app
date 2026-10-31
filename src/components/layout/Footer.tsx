@@ -81,7 +81,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col gap-3 border-t border-white/15 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} RAINVOUS. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {organisation.name}. All rights reserved.</p>
           <p>Prototype for review. Figures marked as reference, illustrative or pending are not yet verified.</p>
         </div>
       </div>

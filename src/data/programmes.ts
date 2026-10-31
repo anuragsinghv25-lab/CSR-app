@@ -2,12 +2,98 @@ import { Droplets, Sprout, GraduationCap, HeartPulse, UsersRound, Coins } from '
 import type { Programme, ProgrammeSlug } from './types'
 
 /**
+ * ORDER MATTERS: this array defines programme order everywhere on the site
+ * (cards, filters, selectors, diagrams). Skill Development is first at the
+ * founder's request.
+ *
  * Programme themes are taken from the organisation's existing prototype.
  * Interventions, activities and indicators below describe the *kind* of
  * work each programme area covers. They are not claims that a specific
  * intervention is currently active — confirm with the organisation.
  */
 export const programmes: Programme[] = [
+  {
+    id: 'prog-skills',
+    slug: 'skills',
+    title: 'Skill Development',
+    shortTitle: 'Skills',
+    tagline: 'Skills that strengthen Self-Help Groups.',
+    description:
+      'Skill development and capacity building with Self-Help Groups (SHGs), aligned with Skill India schemes, creating pathways to sustainable livelihoods.',
+    overview: [
+      'Rainvows works with Self-Help Groups (SHGs) under Skill India schemes. SHGs bring people — very often women — together around savings, mutual support and shared enterprise. Skill development turns that collective strength into income.',
+      'This programme area focuses on building practical, market-relevant skills within SHGs, strengthening the groups themselves, and connecting what members learn to employment, enterprise and wider livelihood opportunities.',
+    ],
+    developmentChallenge:
+      'Self-Help Group members often have the will and the collective structure to earn more, but lack market-relevant skills, training access and a route from training to income.',
+    challenges: [
+      'Limited access to quality, market-relevant training close to home',
+      'Training that ends without a clear path to work or enterprise',
+      'Uneven group capacity in planning, bookkeeping and collective enterprise',
+      'Low awareness of the skilling schemes members may be eligible for',
+    ],
+    interventions: [
+      { title: 'SHG mobilisation & strengthening', description: 'Supporting groups to organise, plan and govern themselves well.' },
+      { title: 'Skill training', description: 'Practical, market-relevant skills delivered in line with applicable Skill India schemes.' },
+      { title: 'Capacity building', description: 'Group management, financial literacy, digital and work-readiness skills.' },
+      { title: 'Livelihood & enterprise pathways', description: 'Linking trained members to employment, self-employment or collective enterprise.' },
+    ],
+    activities: [
+      'Identifying and engaging Self-Help Groups',
+      'Assessing skill needs against local market demand',
+      'Mobilising members into training aligned with Skill India schemes',
+      'Post-training support towards work or enterprise',
+    ],
+    expectedOutcomes: [
+      'Members with recognised, market-relevant skills',
+      'Stronger, better-managed Self-Help Groups',
+      'New or higher income from employment or enterprise',
+      'Wider community participation in skilling opportunities',
+    ],
+    impactIndicators: [
+      { name: 'Self-Help Groups engaged', unit: 'groups' },
+      { name: 'Members trained', unit: 'people' },
+      { name: 'Members completing certification, where applicable', unit: 'people' },
+      { name: 'Members in employment or enterprise after training', unit: '%' },
+    ],
+    csrThemes: ['Vocational skills', 'Livelihood enhancement', 'Empowering women', 'Education'],
+    governmentThemes: 'Skill development',
+    icon: GraduationCap,
+    accentColour: '#B54A20',
+    accentVar: 'var(--rv-skills)',
+    spotlight: {
+      positioning:
+        'Strengthening Self-Help Groups through skill development initiatives aligned with Skill India schemes, creating pathways towards sustainable livelihoods and economic participation.',
+      positioningStatus: 'draft',
+      context: [
+        'Self-Help Groups are small community groups — often of women — who save together, lend to one another and increasingly run shared enterprises.',
+        'Skill India is the Government of India’s national skilling mission. Its schemes fund and standardise training so that skills are recognised and portable.',
+        'Working through SHGs means training reaches people inside an existing support network, which helps skills turn into lasting income.',
+      ],
+      pathway: [
+        { title: 'Engage Self-Help Groups', description: 'Identify groups and members interested in building new skills.' },
+        { title: 'Map skills to demand', description: 'Match members’ interests with skills that local markets and employers need.' },
+        { title: 'Train and certify', description: 'Deliver training aligned with applicable Skill India schemes, with certification where the scheme provides it.' },
+        { title: 'Build livelihood pathways', description: 'Support employment, self-employment or collective SHG enterprise after training.' },
+        { title: 'Measure outcomes', description: 'Track participation, completion and income change against a baseline.' },
+      ],
+      schemeAlignment: {
+        summary:
+          'Rainvows works with SHGs under Skill India schemes. The specific schemes, implementation roles and any registrations are to be confirmed by the organisation before they are published.',
+        ecosystemExamples: ['PMKVY', 'Jan Shikshan Sansthan (JSS)'],
+      },
+      placeholders: [
+        { label: 'Skill India schemes Rainvows works under', note: 'Scheme names and Rainvows’ role in each' },
+        { label: 'Number of SHGs supported', note: 'With reporting period and source' },
+        { label: 'Number of members trained', note: 'With reporting period and source' },
+        { label: 'Trades and training offered', note: 'Courses currently delivered' },
+        { label: 'Training locations', note: 'States, districts or centres' },
+        { label: 'Certification and outcomes', note: 'Certification, placement or enterprise figures, if tracked' },
+      ],
+      livelihoodLink:
+        'Skill development is the first step in the Rainvows approach. Skills create the capability; the livelihoods, women’s empowerment and agriculture programmes help turn that capability into stable household income.',
+    },
+  },
   {
     id: 'prog-water',
     slug: 'water',
@@ -107,56 +193,6 @@ export const programmes: Programme[] = [
     icon: Sprout,
     accentColour: '#4F7A35',
     accentVar: 'var(--rv-agriculture)',
-  },
-  {
-    id: 'prog-skills',
-    slug: 'skills',
-    title: 'Skills',
-    shortTitle: 'Skills',
-    tagline: 'Training that leads somewhere.',
-    description:
-      'Vocational skills, capacity building and training that open real livelihood opportunities for young people and adults.',
-    overview: [
-      'Skills only change lives when they connect to work. Many young people in rural and peri-urban areas complete schooling without a route into employment or enterprise.',
-      'The skills programme area links vocational training and capacity building to the livelihood opportunities that exist — or can be created — locally.',
-    ],
-    developmentChallenge:
-      'A gap between available training and the jobs and enterprises open to rural and peri-urban youth.',
-    challenges: [
-      'Mismatch between training and local labour demand',
-      'Limited access to quality vocational institutions',
-      'Low confidence and work-readiness among first-time job seekers',
-      'Few pathways for women to enter skilled work',
-    ],
-    interventions: [
-      { title: 'Vocational training', description: 'Trade-specific courses designed around local demand.' },
-      { title: 'Work readiness', description: 'Communication, digital and financial literacy for the workplace.' },
-      { title: 'Capacity building', description: 'Strengthening trainers, institutions and community resource persons.' },
-      { title: 'Placement & enterprise links', description: 'Connecting trainees to employers or self-employment support.' },
-    ],
-    activities: [
-      'Labour-market scans to choose relevant trades',
-      'Classroom and on-the-job training cohorts',
-      'Mentoring and post-training follow-up',
-      'Employer and enterprise linkage events',
-    ],
-    expectedOutcomes: [
-      'Certified, job-ready trainees',
-      'Placement or self-employment after training',
-      'Higher and more regular earnings',
-      'Stronger local training ecosystems',
-    ],
-    impactIndicators: [
-      { name: 'Trainees completing courses', unit: 'people' },
-      { name: 'Placement or enterprise rate', unit: '%' },
-      { name: 'Women among trainees', unit: '%' },
-      { name: 'Trainers and resource persons trained', unit: 'people' },
-    ],
-    csrThemes: ['Education', 'Vocational skills', 'Livelihood enhancement'],
-    governmentThemes: 'Skills development',
-    icon: GraduationCap,
-    accentColour: '#B54A20',
-    accentVar: 'var(--rv-skills)',
   },
   {
     id: 'prog-health',
@@ -268,7 +304,7 @@ export const programmes: Programme[] = [
       'Income opportunities, economic resilience and sustainable livelihoods that strengthen family prosperity.',
     overview: [
       'A single source of income leaves families exposed to one bad season, one illness or one market shock. Durable prosperity depends on diverse, resilient livelihoods.',
-      'The livelihoods programme area draws the other five together — water, agriculture, skills, health and women’s leadership — into income that lasts.',
+      'The livelihoods programme area draws the other five together — skill development, water, agriculture, health and women’s leadership — into income that lasts.',
     ],
     developmentChallenge:
       'Income that is low, irregular and concentrated in a single source, leaving families vulnerable to shocks.',
@@ -313,6 +349,11 @@ export const programmes: Programme[] = [
 export const programmeBySlug = Object.fromEntries(programmes.map((p) => [p.slug, p])) as Record<ProgrammeSlug, Programme>
 
 export const programmeSlugs = programmes.map((p) => p.slug)
+
+/** Sort any list of items by the site-wide programme order (Skill Development first). */
+export function byProgrammeOrder<T>(items: T[], slugOf: (item: T) => ProgrammeSlug): T[] {
+  return [...items].sort((a, b) => programmeSlugs.indexOf(slugOf(a)) - programmeSlugs.indexOf(slugOf(b)))
+}
 
 export function getProgramme(slug: string | undefined): Programme | undefined {
   return programmes.find((p) => p.slug === slug)

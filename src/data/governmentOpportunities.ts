@@ -1,10 +1,11 @@
 import type { GovernmentOpportunity } from './types'
+import { byProgrammeOrder } from './programmes'
 
 /**
  * SAMPLE PROTOTYPE CONTENT — these are example collaboration formats,
  * not real tenders, scheme approvals, empanelments or funding calls.
  */
-export const governmentOpportunities: GovernmentOpportunity[] = [
+const opportunityList: GovernmentOpportunity[] = [
   {
     id: 'gov-01',
     title: 'District water-security convergence',
@@ -14,7 +15,7 @@ export const governmentOpportunities: GovernmentOpportunity[] = [
     duration: '24–36 months',
     status: 'Concept stage',
     details:
-      'An example of how community water planning could be aligned with an existing public water programme at district level, with RAINVOUS supporting community mobilisation and monitoring.',
+      'An example of how community water planning could be aligned with an existing public water programme at district level, with Rainvows supporting community mobilisation and monitoring.',
     isIllustrative: true,
   },
   {
@@ -26,19 +27,19 @@ export const governmentOpportunities: GovernmentOpportunity[] = [
     duration: '12–24 months',
     status: 'Open for discussion',
     details:
-      'An example format in which RAINVOUS supports extension services with farmer field schools and demonstration plots.',
+      'An example format in which Rainvows supports extension services with farmer field schools and demonstration plots.',
     isIllustrative: true,
   },
   {
     id: 'gov-03',
-    title: 'Skilling-to-placement implementation support',
+    title: 'SHG skilling implementation support',
     programme: 'skills',
     geography: 'State level (sample)',
     fundingCategory: 'Grant-in-aid collaboration',
     duration: '24 months',
     status: 'Concept stage',
     details:
-      'An example of an implementation partnership for demand-led vocational training with placement tracking.',
+      'An example of how Rainvows could support the implementation of skill training for Self-Help Group members within an applicable Skill India scheme, with outcome tracking.',
     isIllustrative: true,
   },
   {
@@ -79,6 +80,9 @@ export const governmentOpportunities: GovernmentOpportunity[] = [
   },
 ]
 
+/** Listed in programme order — Skill Development first. */
+export const governmentOpportunities = byProgrammeOrder(opportunityList, (o) => o.programme)
+
 export const fundingCategories = [
   'Grant-in-aid collaboration',
   'Programme convergence',
@@ -90,19 +94,19 @@ export const collaborationModels = [
   {
     id: 'implementation',
     title: 'Implementation partner',
-    summary: 'RAINVOUS implements a defined programme in agreed geographies, with reporting to the institution.',
+    summary: 'Rainvows implements a defined programme in agreed geographies, with reporting to the institution.',
     suits: 'Departments and agencies with an approved programme and budget seeking field implementation.',
   },
   {
     id: 'convergence',
     title: 'Convergence partner',
-    summary: 'RAINVOUS aligns its community work with an existing public programme so both reach further.',
+    summary: 'Rainvows aligns its community work with an existing public programme so both reach further.',
     suits: 'Districts and blocks looking to improve uptake and community participation in existing schemes.',
   },
   {
     id: 'technical',
     title: 'Technical support',
-    summary: 'RAINVOUS provides design, training or monitoring expertise to a programme run by the institution.',
+    summary: 'Rainvows provides design, training or monitoring expertise to a programme run by the institution.',
     suits: 'Institutions that run programmes directly but want specialist community-development input.',
   },
   {

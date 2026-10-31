@@ -23,7 +23,7 @@ export default function Donations() {
         crumbs={[{ label: 'Partner With Us' }, { label: 'Individual Donations' }]}
         eyebrow="Give as an individual"
         title="Your contribution can help create lasting change."
-        description="Donations support sustainable development initiatives across water, agriculture, skills, health, women’s empowerment and livelihoods. Choose a programme, or let us direct your gift where it’s needed most."
+        description="Donations support sustainable development initiatives across skill development, water, agriculture, health, women’s empowerment and livelihoods. Choose a programme, or let us direct your gift where it’s needed most."
       />
 
       <SectionContainer tone="white" id="give" labelledBy="give-title" bordered>

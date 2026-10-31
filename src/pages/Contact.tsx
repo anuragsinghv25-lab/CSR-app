@@ -9,7 +9,7 @@ import { ContactForm, enquiryCategories } from '@/components/forms/ContactForm'
 import { Link } from 'react-router-dom'
 
 const routes = [
-  { icon: MessageSquare, title: 'General enquiries', body: 'Questions about RAINVOUS and our work.', to: '/contact?topic=general', label: 'Use the form' },
+  { icon: MessageSquare, title: 'General enquiries', body: 'Questions about Rainvows and our work.', to: '/contact?topic=general', label: 'Use the form' },
   { icon: Building2, title: 'CSR enquiries', body: 'Corporate and foundation partnerships.', to: '/partnerships/csr#enquiry', label: 'CSR enquiry form' },
   { icon: HandHeart, title: 'Donation enquiries', body: 'Giving, receipts and recurring support.', to: '/contact?topic=donation', label: 'Use the form' },
   { icon: Landmark, title: 'Government partnerships', body: 'Public institutions and development agencies.', to: '/partnerships/government#enquiry', label: 'Institutional enquiry' },

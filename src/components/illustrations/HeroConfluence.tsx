@@ -12,7 +12,7 @@ function polar(r: number, deg: number) {
 }
 
 /**
- * "Confluence" — the RAINVOUS signature illustration.
+ * "Confluence" — the Rainvows signature illustration.
  * Six programme streams spiral inward from the communities around them
  * and meet in a single pool: community prosperity. Rain marks fall in
  * from the edge. Drawn once on load, then still.
@@ -63,7 +63,7 @@ export function HeroConfluence({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 600 600" className={cn('h-auto w-full', className)} role="img" aria-labelledby="confluence-title">
       <title id="confluence-title">
-        Six programme areas — water, agriculture, skills, health, women and livelihoods — flowing together into community prosperity
+        Six programme areas — skill development, water, agriculture, health, women and livelihoods — flowing together into community prosperity
       </title>
       <defs>
         <radialGradient id="pool" cx="50%" cy="50%" r="50%">

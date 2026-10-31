@@ -1,6 +1,8 @@
-# RAINVOUS — CSR & Social Impact Platform (Phase 1 prototype)
+# Rainvows — CSR & Social Impact Platform (Phase 1 prototype)
 
-Frontend-only interactive prototype for **RAINVOUS**, a social development organisation working towards sustainable livelihoods and community prosperity.
+Live: https://csr-ngo.netlify.app/
+
+Frontend-only interactive prototype for **Rainvows**, a social development organisation working towards sustainable livelihoods and community prosperity.
 
 > **Prototype.** No payment gateway, CRM, email, authentication or government system is connected. Every submission is simulated in the browser. Figures are marked as *reference*, *unverified*, *illustrative* or *pending* throughout the UI.
 
@@ -24,9 +26,9 @@ React 18 · Vite 6 · TypeScript (strict) · Tailwind CSS v4 · shadcn/ui-patter
 | Route | Page |
 |---|---|
 | `/` | Home |
-| `/about` | About RAINVOUS |
+| `/about` | About Rainvows |
 | `/approach` | Our Approach (interactive 360° model) |
-| `/programs`, `/programs/:slug` | Programme index + reusable detail template (water, agriculture, skills, health, women, livelihoods) |
+| `/programs`, `/programs/:slug` | Programme index + reusable detail template. Order: Skill Development (`/programs/skills`, with SHG / Skill India spotlight), Water, Agriculture, Health, Women, Livelihoods |
 | `/impact` | Impact report: state map explorer, programme filter, 4 charts, sample stories |
 | `/partnerships/csr` | CSR: alignment tabs, 5-step lifecycle, filterable opportunity explorer, 4-step enquiry form |
 | `/donate` | Donation calculator → review → simulated confirmation |
@@ -55,11 +57,17 @@ src/
 
 ## Data honesty
 
-- **Reference** (from the existing prototype site, awaiting documents): 30+ years, 5M+ lives, 100+ partners, CRISIL 9.27/10, Great Place to Work, `ceooffice@rainvows.org`, Mumbai 400059.
+- **Reference** (from the existing prototype site, awaiting documents): 30+ years, 5M+ lives, 100+ partners, CRISIL 9.27/10, Great Place to Work, `ceooffice@rainvows.org`, address Noida – 201301, India (no street address published).
 - **Unverified:** state count (sources show both 14 and 15).
 - **Illustrative:** all state-level data, charts, CSR projects, government opportunities and case studies. Each one is labelled in the UI.
 - **Pending:** founding year, milestones, leadership names, all documents and registrations (CSR-1, 12A/80G, etc.).
 - Partners listed: only APM Terminals and Apollo Tyres Foundation (named on the supplied prototype), as text, not logos.
+
+## Editing key content
+
+- **Brand name:** `organisation.name` in `src/data/organisation.ts` (used by logo, titles, footer). Static SEO/OG/JSON-LD tags live in `index.html`.
+- **Programme order:** the order of the `programmes` array in `src/data/programmes.ts` drives every card, filter, selector and diagram. `byProgrammeOrder()` keeps derived lists in step.
+- **Skill Development positioning:** `spotlight` on the skills entry. Set `positioningStatus: 'approved'` once the founder signs off the wording, and replace each `placeholders` item with real content.
 
 ## Swap-in points for Phase 2
 

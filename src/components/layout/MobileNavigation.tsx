@@ -17,7 +17,7 @@ export function MobileNavigation({ open, onOpenChange }: { open: boolean; onOpen
           <DialogPrimitive.Title className="sr-only">Site navigation</DialogPrimitive.Title>
           <DialogPrimitive.Description className="sr-only">Main pages and partnership options</DialogPrimitive.Description>
           <div className="flex h-[var(--rv-nav-h)] items-center justify-between px-5">
-            <span className="font-display text-lg font-extrabold tracking-[0.06em]">RAINVOUS</span>
+            <span className="font-display text-lg font-extrabold">{organisation.name}</span>
             <DialogPrimitive.Close className="grid size-11 place-items-center rounded-md hover:bg-white/10" aria-label="Close menu">
               <X className="size-6" />
             </DialogPrimitive.Close>

@@ -38,7 +38,7 @@ export default function Resources() {
       <SectionContainer tone="white" labelledBy="library-title" bordered>
         <h2 id="library-title" className="sr-only">Document library</h2>
         <div className="grid gap-10 lg:grid-cols-12">
-          <aside className="lg:col-span-3" aria-label="Filters">
+          <aside className="min-w-0 lg:col-span-3" aria-label="Filters">
             <div className="lg:sticky lg:top-24">
               <label htmlFor="doc-search" className="text-sm font-medium text-charcoal">Search</label>
               <div className="relative mt-1.5">
@@ -93,7 +93,7 @@ export default function Resources() {
             </div>
           </aside>
 
-          <div className="lg:col-span-9">
+          <div className="min-w-0 lg:col-span-9">
             <p className="text-sm text-muted" aria-live="polite">
               <strong className="font-semibold text-charcoal">{results.length}</strong> {results.length === 1 ? 'document' : 'documents'}
               {category !== 'all' && <> in {category.toLowerCase()}</>}

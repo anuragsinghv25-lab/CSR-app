@@ -58,6 +58,29 @@ export interface Programme {
   icon: LucideIcon
   accentColour: string
   accentVar: string
+  /** Optional programme-specific deep-dive (used by Skill Development). */
+  spotlight?: ProgrammeSpotlight
+}
+
+/** A value the organisation must supply before production. Rendered with a visible "to be confirmed" marker. */
+export interface Placeholder {
+  label: string
+  note: string
+}
+
+export interface ProgrammeSpotlight {
+  /** Draft positioning statement — shown with a "draft for approval" marker until approved. */
+  positioning: string
+  positioningStatus: 'draft' | 'approved'
+  context: string[]
+  pathway: { title: string; description: string }[]
+  schemeAlignment: {
+    summary: string
+    /** Example schemes in the wider Skill India ecosystem. Not claims of Rainvows' participation. */
+    ecosystemExamples: string[]
+  }
+  placeholders: Placeholder[]
+  livelihoodLink: string
 }
 
 export interface ImpactRecord {

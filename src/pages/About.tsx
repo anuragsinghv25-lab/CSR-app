@@ -21,8 +21,8 @@ export default function About() {
     <>
       <PageHero
         crumbs={[{ label: 'About Us' }]}
-        eyebrow="About RAINVOUS"
-        title="Three decades of building prosperity with communities."
+        eyebrow="About Rainvows"
+        title="Building lasting prosperity with communities."
         description={organisation.summary}
         aside={
           <div className="relative mx-auto aspect-square max-w-[360px] rounded-full bg-navy">
@@ -42,8 +42,9 @@ export default function About() {
               A social development organisation working towards sustainable livelihoods and community prosperity.
             </p>
             <p>
-              We work across six connected programme areas — water, agriculture, skills, health, women’s empowerment and
-              livelihoods — because lasting prosperity rarely comes from a single intervention.
+              We work across six connected programme areas — skill development, water, agriculture, health, women’s empowerment and
+              livelihoods — because lasting prosperity rarely comes from a single intervention. Skill development comes first:
+              we work with Self-Help Groups under Skill India schemes.
             </p>
             <p>
               We partner with corporate CSR teams, individual donors, government institutions and development organisations

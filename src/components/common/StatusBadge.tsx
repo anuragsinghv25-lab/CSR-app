@@ -14,7 +14,7 @@ const copy: Record<DataStatus, { label: string; help: string }> = {
   },
   illustrative: {
     label: 'Illustrative data',
-    help: 'Invented for this prototype to demonstrate the interface. Not a RAINVOUS result.',
+    help: 'Invented for this prototype to demonstrate the interface. Not a Rainvows result.',
   },
   pending: {
     label: 'Pending verification',

@@ -18,7 +18,6 @@ import { OpportunityExplorer } from '@/components/funding/OpportunityExplorer'
 import { PartnershipEnquiryForm } from '@/components/funding/PartnershipEnquiryForm'
 
 const alignmentLabel: Record<string, string> = {
-  skills: 'Education and skills development',
   women: 'Women’s empowerment',
 }
 
@@ -33,7 +32,7 @@ export default function CSRPartnerships() {
         crumbs={[{ label: 'Partner With Us' }, { label: 'Corporate CSR' }]}
         eyebrow="For CSR teams, foundations and ESG leaders"
         title="Turn your CSR vision into measurable community impact."
-        description="Build meaningful partnerships with RAINVOUS to support sustainable development initiatives across communities."
+        description="Build meaningful partnerships with Rainvows to support sustainable development initiatives across communities."
         actions={
           <>
             <PrimaryButton to="#opportunities" size="lg">Explore Partnership Opportunities</PrimaryButton>
@@ -41,6 +40,7 @@ export default function CSRPartnerships() {
           </>
         }
         aside={
+          <div>
           <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line">
             {[
               ['6', 'programme areas'],
@@ -57,12 +57,14 @@ export default function CSRPartnerships() {
               </div>
             ))}
           </dl>
+          <StatusBadge status="reference" label="Years and partners: reference figures" className="mt-3" />
+          </div>
         }
       />
 
       {/* Why partner */}
       <SectionContainer tone="white" labelledBy="why-title" bordered>
-        <SectionHeading eyebrow="Why RAINVOUS" title={<span id="why-title">Why partner with RAINVOUS?</span>} />
+        <SectionHeading eyebrow="Why Rainvows" title={<span id="why-title">Why partner with Rainvows?</span>} />
         <div className="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {whyPartner.map((w) => (
             <div key={w.title} className="border-t border-charcoal/15 pt-6">
@@ -80,7 +82,7 @@ export default function CSRPartnerships() {
           title={<span id="align-title">Find where your CSR priorities fit</span>}
           description="Each programme area maps to common CSR focus themes. Final alignment with your policy and applicable regulations is confirmed during discovery."
         />
-        <Tabs defaultValue={programmeParam && programmes.some((p) => p.slug === programmeParam) ? programmeParam : 'water'} className="mt-10">
+        <Tabs defaultValue={programmeParam && programmes.some((p) => p.slug === programmeParam) ? programmeParam : programmes[0].slug} className="mt-10">
           <TabsList aria-label="Programme areas">
             {programmes.map((p) => (
               <TabsTrigger key={p.slug} value={p.slug}>{alignmentLabel[p.slug] ?? p.title}</TabsTrigger>

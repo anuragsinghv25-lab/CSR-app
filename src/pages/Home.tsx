@@ -66,7 +66,7 @@ export default function Home() {
       {/* Impact at a glance */}
       <SectionContainer tone="white" labelledBy="glance-title" className="border-y border-line">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 id="glance-title" className="max-w-[24ch] font-display text-h3 font-bold text-charcoal">Three decades of work, in four numbers</h2>
+          <h2 id="glance-title" className="max-w-[24ch] font-display text-h3 font-bold text-charcoal">Our work, in four numbers</h2>
           <StatusBadge status="reference" label="Reference figures" />
         </div>
         <ImpactOverview className="mt-12" />
@@ -83,7 +83,7 @@ export default function Home() {
               title={<span id="philosophy-title">Change doesn’t happen in isolation.</span>}
             />
             <div className="mt-6 grid gap-4 text-lead text-white/75">
-              <p>A new well means little if the harvest still fails. A training course changes little if there is no work nearby, or if illness keeps someone at home.</p>
+              <p>A training course changes little if there is no work nearby. A new well means little if the harvest still fails, or if illness keeps someone at home.</p>
               <p>Our 360-degree approach connects six programme areas so that each one strengthens the others — and together they add up to lasting community prosperity.</p>
             </div>
             <TextLink to="/approach" onDark className="mt-8">See how the approach works</TextLink>
@@ -100,14 +100,14 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our programmes"
             title={<span id="programmes-title">Six areas of work, designed to connect</span>}
-            description="Each programme area addresses a distinct need. Together they form one approach to community prosperity."
+            description="Led by skill development with Self-Help Groups under Skill India schemes. Each area addresses a distinct need; together they form one approach to community prosperity."
           />
           <TextLink to="/programs">All programmes</TextLink>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-6 lg:grid-cols-12">
-          <ProgrammeCard programme={programmeBySlug.water} variant="feature" className="md:col-span-6 lg:col-span-7" />
-          <ProgrammeCard programme={programmeBySlug.agriculture} variant="feature" className="md:col-span-6 lg:col-span-5" />
-          <ProgrammeCard programme={programmeBySlug.skills} className="md:col-span-2 lg:col-span-4" />
+          <ProgrammeCard programme={programmeBySlug.skills} variant="feature" className="md:col-span-6 lg:col-span-7" />
+          <ProgrammeCard programme={programmeBySlug.water} variant="feature" className="md:col-span-6 lg:col-span-5" />
+          <ProgrammeCard programme={programmeBySlug.agriculture} className="md:col-span-2 lg:col-span-4" />
           <ProgrammeCard programme={programmeBySlug.health} className="md:col-span-2 lg:col-span-4" />
           <ProgrammeCard programme={programmeBySlug.women} className="md:col-span-2 lg:col-span-4" />
           <ProgrammeCard programme={programmeBySlug.livelihoods} variant="wide" className="md:col-span-6 lg:col-span-12" />

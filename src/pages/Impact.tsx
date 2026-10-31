@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { FileText } from 'lucide-react'
 import { caseStudies, stateImpact, ILLUSTRATIVE_NOTE } from '@/data/impact'
-import { programmeBySlug } from '@/data/programmes'
+import { programmeBySlug, programmeSlugs } from '@/data/programmes'
+import type { ProgrammeSlug } from '@/data/types'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { PageHero } from '@/components/common/PageHero'
 import { SectionContainer } from '@/components/layout/SectionContainer'
@@ -24,9 +26,12 @@ import {
 
 export default function Impact() {
   useDocumentTitle('Our Impact')
-  const [mapFilter, setMapFilter] = useState<ProgrammeFilter>('all')
+  const [params] = useSearchParams()
+  const param = params.get('programme')
+  const initialFilter: ProgrammeFilter = programmeSlugs.includes(param as ProgrammeSlug) ? (param as ProgrammeSlug) : 'all'
+  const [mapFilter, setMapFilter] = useState<ProgrammeFilter>(initialFilter)
   const [selectedState, setSelectedState] = useState<string | null>('mh')
-  const [filter, setFilter] = useState<ProgrammeFilter>('all')
+  const [filter, setFilter] = useState<ProgrammeFilter>(initialFilter)
 
   return (
     <>
@@ -34,7 +39,7 @@ export default function Impact() {
         tone="navy"
         crumbs={[{ label: 'Our Impact' }]}
         eyebrow="Impact report"
-        title="What thirty years of connected work adds up to."
+        title="What connected work adds up to."
         description="Organisation-level reference figures, followed by an interactive explorer that shows how programme and state-level results will be reported."
       >
         <div className="mt-14 border-t border-white/15 pt-12">

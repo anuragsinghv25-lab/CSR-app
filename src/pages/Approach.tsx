@@ -70,8 +70,8 @@ const reasons = [
 
 export default function Approach() {
   useDocumentTitle('Our Approach')
-  const [selected, setSelected] = useState<ProgrammeSlug>('water')
-  const [openMobile, setOpenMobile] = useState<ProgrammeSlug | null>('water')
+  const [selected, setSelected] = useState<ProgrammeSlug>('skills')
+  const [openMobile, setOpenMobile] = useState<ProgrammeSlug | null>('skills')
 
   return (
     <>

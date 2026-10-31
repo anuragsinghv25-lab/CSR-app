@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 
 /**
- * IMAGE SLOT — reserved for official RAINVOUS photography.
+ * IMAGE SLOT — reserved for official Rainvows photography.
  * ------------------------------------------------------------------
  * Until photographs are supplied, pass `src` as undefined and the slot
  * renders its `fallback` (an abstract illustration) — never an empty box.

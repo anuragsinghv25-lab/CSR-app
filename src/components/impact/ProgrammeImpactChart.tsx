@@ -129,7 +129,7 @@ export function ProgrammeDistributionChart({ filter }: { filter: ProgrammeFilter
         <BarChart data={data} layout="vertical" margin={{ top: 0, right: 36, bottom: 0, left: 0 }} barCategoryGap={8}>
           <CartesianGrid horizontal={false} stroke={GRID} />
           <XAxis type="number" tickLine={false} axisLine={false} allowDecimals={false} stroke={AXIS} />
-          <YAxis type="category" dataKey="name" width={92} tickLine={false} axisLine={false} stroke={AXIS} />
+          <YAxis type="category" dataKey="name" width={124} tickLine={false} axisLine={false} stroke={AXIS} />
           <Tooltip cursor={{ fill: '#F1EEE6' }} content={<ChartTooltip unit="projects" />} />
           <Bar dataKey="value" radius={[0, 4, 4, 0]} isAnimationActive>
             {data.map((d) => (

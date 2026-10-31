@@ -50,7 +50,7 @@ export const csrLifecycle = [
 export const whyPartner = [
   {
     title: 'Programme expertise',
-    description: 'Six programme areas — water, agriculture, skills, health, women and livelihoods — designed to work together.',
+    description: 'Six programme areas — led by skill development with Self-Help Groups, alongside water, agriculture, health, women and livelihoods — designed to work together.',
   },
   {
     title: 'Community-oriented implementation',

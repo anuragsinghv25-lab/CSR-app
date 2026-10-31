@@ -12,7 +12,7 @@ import type { ProgrammeFilter } from './ImpactFilterBar'
 // Sequential single-hue ramp (light → dark blue) for number of sample projects.
 const ramp = ['#C9D6EA', '#8FAAD3', '#4D78B6', '#164A91']
 const inactive = '#E9E6DD'
-const dimmed = '#DCE3EE'
+const dimmed = '#E4E1D7' // no sample activity for the selected programme (neutral, not part of the scale)
 
 function stepFor(projects: number) {
   if (projects <= 3) return 0

@@ -6,17 +6,18 @@ import type { Milestone, OrganisationMetric, OrganisationMetrics } from './types
  * confirmation before production.
  */
 export const organisation = {
-  name: 'RAINVOUS',
+  /** Trademark name — use this constant everywhere rather than hard-coding it. */
+  name: 'Rainvows',
   descriptor: 'Social development organisation',
   summary:
-    'RAINVOUS is a social development organisation working towards sustainable livelihoods and community prosperity through water, agriculture, skills, health, women’s empowerment and livelihoods.',
+    'Rainvows is a social development organisation working towards sustainable livelihoods and community prosperity through skill development, water, agriculture, health, women’s empowerment and livelihoods.',
   mission:
     'To build sustainable livelihoods and lasting community prosperity through interconnected development interventions designed with communities.',
   vision: 'A future where prosperity reaches everyone.',
   email: 'ceooffice@rainvows.org',
   emailNote: 'Contact address shown on the supplied prototype — confirm before production.',
-  location: 'Mumbai 400059, India',
-  locationNote: 'Street address to be confirmed by the organisation.',
+  location: 'Noida – 201301, India',
+  locationNote: 'Street address not published. Confirm with the organisation before adding one.',
 } as const
 
 export const organisationMetrics: OrganisationMetrics = {
@@ -113,7 +114,7 @@ export const milestones: Milestone[] = [
     year: null,
     title: 'Six programme areas, one approach',
     description:
-      'Work across water, agriculture, skills, health, women and livelihoods. Reference figures: 30+ years, 5M+ lives touched, 100+ partners.',
+      'Work across skill development, water, agriculture, health, women and livelihoods. Reference figures: 30+ years, 5M+ lives touched, 100+ partners.',
     status: 'reference',
   },
 ]

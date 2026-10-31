@@ -3,6 +3,7 @@ import { getProgramme } from '@/data/programmes'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { ProgrammeHero } from '@/components/programmes/ProgrammeHero'
 import { ProgrammeOverview } from '@/components/programmes/ProgrammeOverview'
+import { ProgrammeSpotlight } from '@/components/programmes/ProgrammeSpotlight'
 import { InterventionGrid } from '@/components/programmes/InterventionGrid'
 import { ProgrammeOutcomeSection } from '@/components/programmes/ProgrammeOutcomeSection'
 import { ProgrammeRelatedContent } from '@/components/programmes/ProgrammeRelatedContent'
@@ -19,6 +20,7 @@ export default function ProgramDetail() {
     <>
       <ProgrammeHero programme={programme} />
       <ProgrammeOverview programme={programme} />
+      <ProgrammeSpotlight programme={programme} />
       <InterventionGrid programme={programme} />
       <ProgrammeOutcomeSection programme={programme} />
       <ProgrammeRelatedContent programme={programme} />
