@@ -90,6 +90,11 @@ export const programmes: Programme[] = [
         { label: 'Training locations', note: 'States, districts or centres' },
         { label: 'Certification and outcomes', note: 'Certification, placement or enterprise figures, if tracked' },
       ],
+      schemeLogo: {
+        src: '/brand/skill-india-logo.png',
+        alt: 'Skill India — Kaushal Bharat, Kushal Bharat',
+        caption: 'Rainvows works with Self-Help Groups under Skill India schemes.',
+      },
       livelihoodLink:
         'Skill development is the first step in the Rainvows approach. Skills create the capability; the livelihoods, women’s empowerment and agriculture programmes help turn that capability into stable household income.',
     },

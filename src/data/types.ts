@@ -81,6 +81,8 @@ export interface ProgrammeSpotlight {
   }
   placeholders: Placeholder[]
   livelihoodLink: string
+  /** Logo of the scheme ecosystem the programme works under (shown with a usage note). */
+  schemeLogo?: { src: string; alt: string; caption: string }
 }
 
 export interface ImpactRecord {

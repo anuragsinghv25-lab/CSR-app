@@ -35,7 +35,17 @@ export function ProgrammeSpotlight({ programme: p }: { programme: Programme }) {
               />
             )}
           </div>
-          <p className="mt-8 max-w-[28ch] font-display text-h2 font-semibold leading-tight text-white">{s.positioning}</p>
+          <div className="mt-8 grid items-center gap-10 lg:grid-cols-12">
+            <p className="max-w-[28ch] font-display text-h2 font-semibold leading-tight text-white lg:col-span-8">{s.positioning}</p>
+            {s.schemeLogo && (
+              <figure className="lg:col-span-4 lg:col-start-9">
+                <div className="max-w-[260px] rounded-xl bg-white p-5 lg:max-w-none lg:p-6">
+                  <img src={s.schemeLogo.src} alt={s.schemeLogo.alt} width={640} height={532} className="mx-auto h-auto w-full max-w-[260px]" loading="lazy" />
+                </div>
+                <figcaption className="mt-3 text-sm text-white/70">{s.schemeLogo.caption}</figcaption>
+              </figure>
+            )}
+          </div>
           <div className="mt-14 grid gap-8 border-t border-white/15 pt-10 md:grid-cols-3">
             {s.context.map((c) => (
               <p key={c.slice(0, 24)} className="leading-relaxed text-white/75">{c}</p>
@@ -66,7 +76,10 @@ export function ProgrammeSpotlight({ programme: p }: { programme: Programme }) {
             </p>
             <div className="mt-8 flex gap-3 rounded-lg border border-[#e9c46a] bg-yellow-soft p-4 text-sm text-[#5c4100]">
               <ShieldAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
-              <p>No government endorsement, accreditation or official partnership is implied until verified documentation is published.</p>
+              <p>
+                The Skill India logo is shown because Rainvows works under Skill India schemes. Its use follows Skill India’s branding
+                guidelines; scheme names, Rainvows’ role and any accreditation will be published once documentation is confirmed.
+              </p>
             </div>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
