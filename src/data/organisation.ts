@@ -20,6 +20,30 @@ export const organisation = {
   locationNote: 'Street address not published. Confirm with the organisation before adding one.',
 } as const
 
+/**
+ * Social channels. Leave a URL empty and its icon stays hidden — no dead
+ * links. Add the real profile URL to show it in the utility bar and footer.
+ */
+export const socialLinks: { id: 'facebook' | 'x' | 'youtube' | 'linkedin' | 'instagram'; label: string; url: string }[] = [
+  { id: 'facebook', label: 'Facebook', url: '' },
+  { id: 'x', label: 'X (Twitter)', url: '' },
+  { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'linkedin', label: 'LinkedIn', url: '' },
+  { id: 'instagram', label: 'Instagram', url: '' },
+]
+
+/**
+ * Footer emblem (supplied circular Hindi emblem). Replaceable asset: swap
+ * the file or path here. The brand name stays "Rainvows" regardless of the
+ * artwork.
+ */
+export const footerLogo = {
+  src: '/brand/footer-emblem.png',
+  alt: 'Rainvows emblem',
+  width: 360,
+  height: 360,
+}
+
 export const organisationMetrics: OrganisationMetrics = {
   yearsOfExperience: {
     id: 'years',

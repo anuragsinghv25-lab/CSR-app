@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { programmes } from '@/data/programmes'
 import { contributionUses, donationFaqs } from '@/data/content'
 import type { ProgrammeSlug } from '@/data/types'
@@ -24,7 +24,12 @@ export default function Donations() {
         eyebrow="Give as an individual"
         title="Your contribution can help create lasting change."
         description="Donations support sustainable development initiatives across skill development, water, agriculture, health, women’s empowerment and livelihoods. Choose a programme, or let us direct your gift where it’s needed most."
-      />
+      >
+        <p className="mt-6 text-sm text-muted">
+          Sponsoring as a company or foundation?{' '}
+          <Link to="/partnerships/csr" className="font-semibold text-blue hover:underline">Explore CSR partnerships</Link>
+        </p>
+      </PageHero>
 
       <SectionContainer tone="white" id="give" labelledBy="give-title" bordered>
         <h2 id="give-title" className="sr-only">Make a donation</h2>

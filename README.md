@@ -69,6 +69,10 @@ src/
 - **Programme order:** the order of the `programmes` array in `src/data/programmes.ts` drives every card, filter, selector and diagram. `byProgrammeOrder()` keeps derived lists in step.
 - **Skill Development positioning:** `spotlight` on the skills entry. Set `positioningStatus: 'approved'` once the founder signs off the wording, and replace each `placeholders` item with real content.
 
+- **Donors:** `src/data/donors.ts` + images in `public/brand/donors/`. The "Our Donors" section renders on every page directly above the footer. Replace a low-res image by dropping in the original and updating `src`/`width`/`height`.
+- **Social links:** `socialLinks` in `src/data/organisation.ts`. Icons appear in the utility bar, footer and mobile menu only once a URL is filled in.
+- **Footer emblem:** `footerLogo` in `src/data/organisation.ts` (file: `public/brand/footer-emblem.png`).
+
 ## Swap-in points for Phase 2
 
 - **Logo:** `src/components/layout/Logo.tsx` (wordmark stand-in; the official logo file was not supplied).

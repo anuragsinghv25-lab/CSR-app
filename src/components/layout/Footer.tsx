@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Globe, AtSign, Share2 } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import { footerNav } from '@/data/navigation'
-import { organisation } from '@/data/organisation'
+import { organisation, footerLogo } from '@/data/organisation'
 import { NewsletterForm } from '@/components/forms/NewsletterForm'
-import { Tooltip } from '@/components/ui/tooltip'
-import { Logo } from './Logo'
+import { SocialLinks } from '@/components/common/SocialLinks'
 
 function Column({ title, links }: { title: string; links: { label: string; to: string }[] }) {
   return (
@@ -23,20 +22,17 @@ function Column({ title, links }: { title: string; links: { label: string; to: s
   )
 }
 
-/** Social channels not yet supplied — rendered as labelled, non-interactive placeholders. */
-const socialPlaceholders = [
-  { icon: Globe, label: 'Website channel' },
-  { icon: AtSign, label: 'Social channel' },
-  { icon: Share2, label: 'Social channel' },
-]
-
 export function Footer() {
   return (
     <footer className="on-dark relative overflow-hidden bg-navy-deep text-white">
       <div className="container-rv py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo onDark />
+            <Link to="/" className="inline-flex items-center gap-4" aria-label={`${organisation.name} home`} data-footer-logo>
+              {/* Replaceable asset: see footerLogo in src/data/organisation.ts */}
+              <img src={footerLogo.src} alt={footerLogo.alt} width={footerLogo.width} height={footerLogo.height} className="size-20 shrink-0 object-contain" loading="lazy" />
+              <span className="font-display text-2xl font-extrabold tracking-[-0.01em] text-white">{organisation.name}</span>
+            </Link>
             <p className="mt-5 max-w-[38ch] text-sm leading-relaxed text-white/65">{organisation.summary}</p>
             <ul className="mt-6 grid gap-3 text-sm">
               <li className="flex items-start gap-2.5 text-white/80">
@@ -65,19 +61,7 @@ export function Footer() {
             <div className="mt-4">
               <NewsletterForm />
             </div>
-            <div className="mt-8 flex items-center gap-2">
-              {socialPlaceholders.map(({ icon: Icon, label }, i) => (
-                <Tooltip key={i} content={`${label} — account details to be confirmed`}>
-                  <span
-                    tabIndex={0}
-                    className="grid size-9 place-items-center rounded-md border border-white/15 text-white/50"
-                    aria-label={`${label} — to be confirmed`}
-                  >
-                    <Icon className="size-4" aria-hidden />
-                  </span>
-                </Tooltip>
-              ))}
-            </div>
+            <SocialLinks size="md" className="mt-8 gap-2" />
           </div>
         </div>
         <div className="mt-16 flex flex-col gap-3 border-t border-white/15 pt-6 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
