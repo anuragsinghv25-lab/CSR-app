@@ -33,16 +33,19 @@ export const socialLinks: { id: 'facebook' | 'x' | 'youtube' | 'linkedin' | 'ins
 ]
 
 /**
- * Footer emblem (supplied circular Hindi emblem). Replaceable asset: swap
- * the file or path here. The brand name stays "Rainvows" regardless of the
- * artwork.
+ * Brand emblem (supplied circular Hindi emblem), used in the header and the
+ * footer. Replaceable asset: swap the file or path here and both update.
+ * The brand name stays "Rainvows" regardless of the artwork.
  */
-export const footerLogo = {
+export const brandLogo = {
   src: '/brand/footer-emblem.png',
   alt: 'Rainvows emblem',
   width: 360,
   height: 360,
 }
+
+/** Footer uses the same emblem; kept as its own export so it can diverge later. */
+export const footerLogo = brandLogo
 
 export const organisationMetrics: OrganisationMetrics = {
   yearsOfExperience: {
