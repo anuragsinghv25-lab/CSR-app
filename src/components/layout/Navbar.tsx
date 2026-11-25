@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Menu, ArrowRight, HandHeart } from 'lucide-react'
+import { Menu, ArrowRight } from 'lucide-react'
 import { mainNav, partnerNav } from '@/data/navigation'
 import { programmes } from '@/data/programmes'
 import { useScrollProgress } from '@/hooks/useScrollProgress'
@@ -126,17 +126,6 @@ export function Navbar() {
             </NavDropdown>
           </div>
 
-          <Link
-            to="/donate"
-            className={cn(
-              'hidden h-10 items-center gap-1.5 rounded-md bg-yellow px-4 font-display text-[0.92rem] font-semibold text-charcoal transition-colors hover:bg-[#f0ac00] sm:inline-flex',
-              pathname === '/donate' && 'ring-2 ring-blue ring-offset-2 ring-offset-ivory',
-            )}
-          >
-            <HandHeart className="size-4" aria-hidden />
-            <span className="lg:hidden xl:inline">Donate / Sponsor</span>
-            <span className="hidden lg:inline xl:hidden">Donate</span>
-          </Link>
 
           <button
             type="button"

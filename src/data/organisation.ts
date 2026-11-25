@@ -21,16 +21,44 @@ export const organisation = {
 } as const
 
 /**
- * Social channels. Leave a URL empty and its icon stays hidden — no dead
- * links. Add the real profile URL to show it in the utility bar and footer.
+ * SOCIAL CHANNELS — single source for the utility bar, mobile drawer and footer.
+ * ------------------------------------------------------------------
+ * PLACEHOLDERS: no Rainvows profile URLs have been supplied yet. Paste each
+ * official profile URL into `url`. An icon only appears once its URL is a
+ * valid https link on that platform's domain, so a blank or mistyped entry
+ * never renders as a dead or misleading link.
  */
-export const socialLinks: { id: 'facebook' | 'x' | 'youtube' | 'linkedin' | 'instagram'; label: string; url: string }[] = [
-  { id: 'facebook', label: 'Facebook', url: '' },
-  { id: 'x', label: 'X (Twitter)', url: '' },
-  { id: 'youtube', label: 'YouTube', url: '' },
-  { id: 'linkedin', label: 'LinkedIn', url: '' },
-  { id: 'instagram', label: 'Instagram', url: '' },
+export type SocialId = 'facebook' | 'x' | 'youtube' | 'linkedin' | 'instagram'
+
+export interface SocialLink {
+  id: SocialId
+  label: string
+  /** Official profile URL. Empty = pending (icon hidden). */
+  url: string
+  /** Accepted hostnames for validation. */
+  domains: string[]
+}
+
+export const socialLinks: SocialLink[] = [
+  { id: 'facebook', label: 'Facebook', url: '' /* REQUIRED: Rainvows Facebook page URL */, domains: ['facebook.com', 'fb.com'] },
+  { id: 'x', label: 'X (Twitter)', url: '' /* REQUIRED: Rainvows X profile URL */, domains: ['x.com', 'twitter.com'] },
+  { id: 'youtube', label: 'YouTube', url: '' /* REQUIRED: Rainvows YouTube channel URL */, domains: ['youtube.com'] },
+  { id: 'linkedin', label: 'LinkedIn', url: '' /* REQUIRED: Rainvows LinkedIn company page URL */, domains: ['linkedin.com'] },
+  { id: 'instagram', label: 'Instagram', url: '' /* REQUIRED: Rainvows Instagram profile URL */, domains: ['instagram.com'] },
 ]
+
+export function isValidSocialUrl(link: SocialLink): boolean {
+  try {
+    const u = new URL(link.url.trim())
+    const host = u.hostname.replace(/^www\./, '').replace(/^m\./, '')
+    return u.protocol === 'https:' && link.domains.some((d) => host === d || host.endsWith(`.${d}`)) && u.pathname.length > 1
+  } catch {
+    return false
+  }
+}
+
+/** Channels ready to display (valid URL configured). */
+export const activeSocialLinks = socialLinks.filter(isValidSocialUrl)
 
 /**
  * Brand emblem (supplied circular Hindi emblem), used in the header and the

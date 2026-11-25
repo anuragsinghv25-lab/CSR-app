@@ -1,47 +1,64 @@
-import { siFacebook, siInstagram, siX, siYoutube } from 'simple-icons'
-import { Link2 } from 'lucide-react'
-import { socialLinks } from '@/data/organisation'
+import type { IconDefinition } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram, faLinkedin, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { activeSocialLinks, organisation, type SocialId } from '@/data/organisation'
 import { cn } from '@/lib/utils'
 
-const paths: Partial<Record<(typeof socialLinks)[number]['id'], string>> = {
-  facebook: siFacebook.path,
-  x: siX.path,
-  youtube: siYoutube.path,
-  instagram: siInstagram.path,
+/** Official brand marks from Font Awesome Brands (Simple Icons no longer ships LinkedIn). */
+const icons: Record<SocialId, IconDefinition> = {
+  facebook: faFacebook,
+  x: faXTwitter,
+  youtube: faYoutube,
+  linkedin: faLinkedin,
+  instagram: faInstagram,
 }
 
-/** Only channels with a configured URL are rendered. Returns nothing until at least one exists. */
-export function SocialLinks({ className, size = 'sm', onDark = true }: { className?: string; size?: 'sm' | 'md'; onDark?: boolean }) {
-  const active = socialLinks.filter((s) => s.url.trim())
-  if (!active.length) return null
+function BrandIcon({ icon, className }: { icon: IconDefinition; className?: string }) {
+  const [w, h, , , path] = icon.icon
   return (
-    <ul className={cn('flex items-center gap-1', className)} aria-label="Rainvows on social media">
-      {active.map((s) => {
-        const d = paths[s.id]
-        return (
-          <li key={s.id}>
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${s.label} (opens in a new tab)`}
-              className={cn(
-                'grid place-items-center rounded-md transition-colors',
-                size === 'sm' ? 'size-8' : 'size-10 border',
-                onDark ? 'border-white/15 text-white/70 hover:bg-white/10 hover:text-white' : 'border-line text-muted hover:bg-sand hover:text-charcoal',
-              )}
-            >
-              {d ? (
-                <svg viewBox="0 0 24 24" className={size === 'sm' ? 'size-3.5' : 'size-4'} fill="currentColor" aria-hidden>
-                  <path d={d} />
-                </svg>
-              ) : (
-                <Link2 className={size === 'sm' ? 'size-3.5' : 'size-4'} aria-hidden />
-              )}
-            </a>
-          </li>
-        )
-      })}
+    <svg viewBox={`0 0 ${w} ${h}`} className={className} fill="currentColor" aria-hidden focusable="false">
+      {(Array.isArray(path) ? path : [path]).map((d, i) => (
+        <path key={i} d={d} />
+      ))}
+    </svg>
+  )
+}
+
+/**
+ * Renders only channels with a valid, configured profile URL (see
+ * `socialLinks` in src/data/organisation.ts). Renders nothing while all are pending.
+ */
+export function SocialLinks({
+  className,
+  size = 'sm',
+  tone = 'dark',
+}: {
+  className?: string
+  size?: 'sm' | 'md'
+  /** `dark` = on navy surfaces, `light` = on ivory/sand surfaces. */
+  tone?: 'dark' | 'light'
+}) {
+  if (!activeSocialLinks.length) return null
+  return (
+    <ul className={cn('flex items-center gap-1', className)} aria-label={`${organisation.name} on social media`}>
+      {activeSocialLinks.map((s) => (
+        <li key={s.id}>
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${organisation.name} on ${s.label} (opens in a new tab)`}
+            className={cn(
+              'grid place-items-center rounded-md transition-colors',
+              size === 'sm' ? 'size-9' : 'size-10 border',
+              tone === 'dark'
+                ? 'border-white/15 text-white/70 hover:bg-white/10 hover:text-white'
+                : 'border-line text-blue hover:bg-soft-blue hover:text-navy',
+            )}
+          >
+            <BrandIcon icon={icons[s.id]} className={size === 'sm' ? 'size-4' : 'size-[18px]'} />
+          </a>
+        </li>
+      ))}
     </ul>
   )
 }

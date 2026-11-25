@@ -69,8 +69,9 @@ src/
 - **Programme order:** the order of the `programmes` array in `src/data/programmes.ts` drives every card, filter, selector and diagram. `byProgrammeOrder()` keeps derived lists in step.
 - **Skill Development positioning:** `spotlight` on the skills entry. Set `positioningStatus: 'approved'` once the founder signs off the wording, and replace each `placeholders` item with real content.
 
-- **Donors:** `src/data/donors.ts` + images in `public/brand/donors/`. The "Our Donors" section renders on every page directly above the footer. Replace a low-res image by dropping in the original and updating `src`/`width`/`height`.
-- **Social links:** `socialLinks` in `src/data/organisation.ts`. Icons appear in the utility bar, footer and mobile menu only once a URL is filled in.
+- **Utility bar:** `src/components/layout/UtilityBar.tsx` — social icons left, Donate / Sponsor right, on all screen sizes.
+- **Donors:** `src/data/donors.ts` (logos are sized to equal visual area; `optical` nudges individual logos; `asset: 'placeholder'` shows an "Official logo pending" marker) + images in `public/brand/donors/`. The "Our Donors" section renders on every page directly above the footer. Replace a low-res image by dropping in the original and updating `src`/`width`/`height`.
+- **Social links:** `socialLinks` in `src/data/organisation.ts` — five placeholders marked `REQUIRED`. Paste each official profile URL; an icon appears in the utility bar, mobile menu and footer only when its URL is a valid `https` link on that platform's domain. Icons come from Font Awesome Brands (Simple Icons no longer includes LinkedIn).
 - **Footer emblem:** `footerLogo` in `src/data/organisation.ts` (file: `public/brand/footer-emblem.png`).
 
 ## Swap-in points for Phase 2
